@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/thanhpl/nodejs-sql#readme",
   "dependencies": {
-    "mssql": "^5.0.3"
+    "mssql": "^5.0.3",
+    "pg": "^7.9.0"
   }
 }

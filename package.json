@@ -1,22 +1,22 @@
 {
-  "name": "nodejs-sql",
+  "name": "nodejs-database",
   "version": "1.0.0",
-  "description": "Sample SQL application in Nodejs",
+  "description": "Sample application working with database in Nodejs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thanhpl/nodejs-sql.git"
+    "url": "git+https://github.com/thanhpl/nodejs-database.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/thanhpl/nodejs-sql/issues"
+    "url": "https://github.com/thanhpl/nodejs-database/issues"
   },
-  "homepage": "https://github.com/thanhpl/nodejs-sql#readme",
+  "homepage": "https://github.com/thanhpl/nodejs-database#readme",
   "dependencies": {
     "mssql": "^5.0.3",
     "pg": "^7.9.0"

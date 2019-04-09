@@ -1,5 +1,6 @@
 const config = require('../../config/pg.json')
 const { Pool } = require('pg')
+const queries = require('./sql/userQuery')
 
 const pool = new Pool(config)
 
@@ -15,9 +16,7 @@ const User = class {
                 data.fullName === undefined? '' : data.fullName,
                 data.email === undefined? '' : data.email
             ]
-            const result = await pool
-                .query('INSERT INTO public."user"(id, username, password, full_name, email)'
-                    + 'VALUES ($1, $2, $3, $4, $5);', values)
+            const result = await pool.query(queries.insert, values)
             if (result !== null) {
                 return result.rowCount
             }
@@ -32,8 +31,7 @@ const User = class {
     async findAll() {
         const client = await pool.connect()
         try {
-            const result = await pool
-                .query('SELECT * FROM public."user"')
+            const result = await pool.query(queries.findAll)
             if (result !== null) {
                 if (result.rowCount > 0) {
                     return result.rows
@@ -50,8 +48,7 @@ const User = class {
     async findOne(id) {
         const client = await pool.connect()
         try {
-            const result = await pool
-                .query('SELECT * FROM public."user" WHERE id = $1', [id])
+            const result = await pool.query(queries.findOne, [id])
             if (result !== null) {
                 if (result.rowCount > 0) {
                     return result.rows[0]

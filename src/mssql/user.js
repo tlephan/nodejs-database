@@ -1,5 +1,6 @@
 const config = require('../config/mssql.json')
 const sql = require('mssql')
+const queries = require('./sql/userQuery')
 
 const User = class {
 
@@ -12,8 +13,7 @@ const User = class {
                 .input('password', sql.NVarChar, data.password)
                 .input('fullName', sql.NVarChar, data.fullName)
                 .input('email', sql.NVarChar, data.email)
-                .query('INSERT INTO [dbo].[User]([Username],[Password],[FullName],[Email])'
-                    + ' VALUES(@username, @password, @fullName, @email)')
+                .query(queries.insert)
             if (result !== null) {
                 return result.rowsAffected // 1
             }
@@ -27,8 +27,7 @@ const User = class {
         try {
             const pool = await new sql.ConnectionPool(config).connect();
             const request = pool.request()
-            let result = await request
-                .query('SELECT [Username],[Password],[FullName],[Email] FROM [dbo].[User]')
+            let result = await request.query(queries.findAll)
             if (result !== null) {
                 if (result.rowsAffected[0] > 0) {
                     return result.recordset
@@ -46,7 +45,7 @@ const User = class {
             const request = pool.request()
             let result = await request
                 .input('id', sql.Int, id)
-                .query('SELECT [Username],[Password],[FullName],[Email] FROM [dbo].[User] WHERE [Id] = @id')
+                .query(queries.findOne)
             if (result !== null) {
                 if (result.rowsAffected[0] > 0) {
                     return result.recordset[0]

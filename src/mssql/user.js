@@ -5,8 +5,9 @@ const queries = require('./sql/userQuery')
 const User = class {
 
     async insert(data) {
+        const pool = new sql.ConnectionPool(config)
         try {
-            const pool = await new sql.ConnectionPool(config).connect();
+            await pool.connect();
             const request = pool.request()
             let result = await request
                 .input('username', sql.NVarChar, data.username)
@@ -20,12 +21,15 @@ const User = class {
             return 0
         } catch (err) {
            console.error(err)
+        } finally {
+            pool.close() // closing connection after request is finished
         }
     }
 
     async findAll() {
+        const pool = new sql.ConnectionPool(config)
         try {
-            const pool = await new sql.ConnectionPool(config).connect();
+            await pool.connect();
             const request = pool.request()
             let result = await request.query(queries.findAll)
             if (result !== null) {
@@ -36,12 +40,15 @@ const User = class {
             return null
         } catch (err) {
            console.error(err)
+        } finally {
+            pool.close() // closing connection after request is finished
         }
     }
 
     async findOne(id) {
+        const pool = new sql.ConnectionPool(config)
         try {
-            const pool = await new sql.ConnectionPool(config).connect();
+            await pool.connect();
             const request = pool.request()
             let result = await request
                 .input('id', sql.Int, id)
@@ -54,6 +61,8 @@ const User = class {
             return null
         } catch (err) {
            console.error(err)
+        } finally {
+            pool.close() // closing connection after request is finished
         }
     }
 

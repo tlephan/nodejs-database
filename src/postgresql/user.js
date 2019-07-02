@@ -1,4 +1,4 @@
-const config = require('../../config/pg.json')
+const config = require('../../config/postgresql.json')
 const { Pool } = require('pg')
 const queries = require('./sql/userQuery')
 

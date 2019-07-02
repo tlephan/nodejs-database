@@ -1,4 +1,4 @@
-const User = require('../src/pg/user')
+const User = require('../src/postgresql/user')
 const user = new User()
 
 /*

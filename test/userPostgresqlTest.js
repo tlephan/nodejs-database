@@ -1,5 +1,5 @@
-const User = require('../src/postgresql/user')
-const user = new User()
+const User = require('../src/postgresql/user');
+const user = new User();
 
 /*
 let data = {
@@ -8,18 +8,18 @@ let data = {
     password: '123456',
     fullName: 'Adminstrator',
     email: 'admin@gmail.com'
-}
+};
 user.insert(data).then((result) => {
-    console.log(result)
+    console.log(result);
 })
 */
 
 /*
 user.findAll().then((result) => {
-    console.log(result)
+    console.log(result);
 })
 */
 
 user.findOne(1).then((result) => {
-    console.log(result)
+    console.log(result);
 })

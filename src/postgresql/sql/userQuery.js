@@ -10,4 +10,4 @@ module.exports = {
     findAll: `SELECT * FROM public."user"`,
 
     findOne: `SELECT * FROM public."user" WHERE id = $1`,
-}
+};

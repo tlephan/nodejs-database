@@ -1,6 +1,6 @@
-const User = require('../src/repository/user')
-const user = new User()
+const User = require('../src/mssql/user');
+const user = new User();
 
 user.findAll().then((result) => {
-    console.log(result)
+    console.log(result);
 })

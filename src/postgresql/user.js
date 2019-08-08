@@ -23,6 +23,7 @@ const User = class {
             return 0;
         } catch (err) {
             console.error(err);
+            throw new Error(error);
         } finally {
             client.release();
         }
@@ -40,6 +41,7 @@ const User = class {
             return null;
         } catch (err) {
             console.error(err);
+            throw new Error(error);
         } finally {
             client.release();
         }
@@ -57,6 +59,7 @@ const User = class {
             return null;
         } catch (err) {
             console.error(err);
+            throw new Error(error);
         } finally {
             client.release();
         }

@@ -21,6 +21,7 @@ const User = class {
             return 0;
         } catch (err) {
            console.error(err);
+           throw new Error(error);
         } finally {
             pool.close(); // closing connection after request is finished
         }
@@ -40,6 +41,7 @@ const User = class {
             return null;
         } catch (err) {
            console.error(err);
+           throw new Error(error);
         } finally {
             pool.close(); // closing connection after request is finished
         }
@@ -61,6 +63,7 @@ const User = class {
             return null;
         } catch (err) {
            console.error(err);
+           throw new Error(error);
         } finally {
             pool.close(); // closing connection after request is finished
         }

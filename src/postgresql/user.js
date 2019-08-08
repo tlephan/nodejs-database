@@ -21,8 +21,8 @@ const User = class {
                 return result.rowCount;
             }
             return 0;
-        } catch (err) {
-            console.error(err);
+        } catch (error) {
+            console.error(error);
             throw new Error(error);
         } finally {
             client.release();
@@ -39,8 +39,8 @@ const User = class {
                 }
             }
             return null;
-        } catch (err) {
-            console.error(err);
+        } catch (error) {
+            console.error(error);
             throw new Error(error);
         } finally {
             client.release();
@@ -57,8 +57,8 @@ const User = class {
                 }
             }
             return null;
-        } catch (err) {
-            console.error(err);
+        } catch (error) {
+            console.error(error);
             throw new Error(error);
         } finally {
             client.release();

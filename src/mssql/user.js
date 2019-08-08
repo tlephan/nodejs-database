@@ -19,8 +19,8 @@ const User = class {
                 return result.rowsAffected; // 1
             }
             return 0;
-        } catch (err) {
-           console.error(err);
+        } catch (error) {
+           console.error(error);
            throw new Error(error);
         } finally {
             pool.close(); // closing connection after request is finished
@@ -39,8 +39,8 @@ const User = class {
                 }
             }
             return null;
-        } catch (err) {
-           console.error(err);
+        } catch (error) {
+           console.error(error);
            throw new Error(error);
         } finally {
             pool.close(); // closing connection after request is finished
@@ -61,8 +61,8 @@ const User = class {
                 }
             }
             return null;
-        } catch (err) {
-           console.error(err);
+        } catch (error) {
+           console.error(error);
            throw new Error(error);
         } finally {
             pool.close(); // closing connection after request is finished
